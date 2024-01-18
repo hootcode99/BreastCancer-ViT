@@ -1,2 +1,2 @@
-# Breast Cancer ViT (in-progress)
-Vision Transformer for detecting breast cancer from images
+# Breast Cancer CNN (in-progress)
+Convolutional Neural Network for detecting breast cancer from images
