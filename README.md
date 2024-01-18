@@ -1,2 +1,2 @@
-# Titanic-Survivor-Predictor
-Deep learning model to predict which passengers would have survived the sinking of the Titanic
+# Breast Cancer ViT (in-progress)
+Vision Transformer for detecting breast cancer from images
