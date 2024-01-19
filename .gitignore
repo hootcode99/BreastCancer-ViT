@@ -156,4 +156,7 @@ cython_debug/
 .idea/
 
 # Custom
-samples/
+samples1024/
+samples512/
+samples256/
+

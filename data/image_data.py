@@ -1,11 +1,11 @@
 import torch
 from torch.utils.data import random_split, DataLoader
 import lightning as L
-import os
+from ImageDataset import ImageDataset
 from torchvision import transforms
 
 
-class CancerDataModule(L.LightningDataModule):
+class ImageDataModule(L.LightningDataModule):
     def __init__(self, data_dir, batch_size):
         super().__init__()
         self.data_dir = data_dir
@@ -23,7 +23,7 @@ class CancerDataModule(L.LightningDataModule):
         # TODO: Define Data splits for each mode
 
         if mode == "train":
-            dataset =
+            dataset = ImageDataset(data_path="", label_path="")
             self.train, self.validation = random_split(
                 dataset, [55000, 5000], generator=torch.Generator().manual_seed(42)
             )
