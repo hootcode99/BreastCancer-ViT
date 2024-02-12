@@ -6,11 +6,11 @@ from torchvision import transforms
 
 
 class ImageDataModule(L.LightningDataModule):
-    def __init__(self, data_dir, batch_size):
+    def __init__(self, data_path, label_path, batch_size):
         super().__init__()
-        self.data_dir = data_dir
+        self.data_dir = data_path
+        self.label_dir = label_path
         self.batch_size = batch_size
-
         self.transform = transforms.Compose([transforms.ToTensor(),
                                              transforms.Normalize((0.1307,), (0.3081,))])
 
@@ -23,7 +23,7 @@ class ImageDataModule(L.LightningDataModule):
         # TODO: Define Data splits for each mode
 
         if mode == "train":
-            dataset = ImageDataset(data_path="", label_path="")
+            dataset = ImageDataset(data_path=self.data_dir, label_path=self.label_dir)
             self.train, self.validation = random_split(
                 dataset, [55000, 5000], generator=torch.Generator().manual_seed(42)
             )
