@@ -1,10 +1,8 @@
 # Lung Disease Classifier  (work-in-progress)
 
-I am currently developing a Convolutional Neural Network to take in chest X-rays and output probabilities for 14 different types of lung disease.
+I am currently developing a CNN to consume chest X-rays and output diagnoses probabilities for 14 different types of lung disease. With this project, I'm looking to learn more about PyTorch Lightning, Data cleaning/preprocessing, and Optuna hyperparameter optimization.
 
 I am leveraging the NIH Chest X-ray Dataset which can be found here: 
 https://www.kaggle.com/datasets/nih-chest-xrays/data/data 
 
-With this project, I'm looking to learn more about PyTorch Lightning, Data Pre-Processing, and Optuna Hyperparameter Optimization.
-
-I have already done some pre-processing to downsize the images to a size more appropriate local training and prototyped a model on that input size. Currently, I'm developing a notebook that will transform & organize the data labels to be more usable with PyTorch. The data labels did not come in a useful format and some data needs to be excluded due to quality issues or class over-representation. I'm leveraging Pandas to rectify the labeling format and will be using Pillow to exclude some of the data.
+I have already completed preprocessing using Pillow to downsize the images to be compatible with local, single-GPU training and developed a prototype model on that input size. I've just finished developing a Jupyter Notebook that will leverage the Python Pandas module to transform the data labels from text to one-hot encodings to be more useful with PyTorch training. Currently, I'm exploring whether class imbalance is significant enough to be rectified and which methods I could leverage.
