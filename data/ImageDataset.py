@@ -8,13 +8,13 @@ from torch.utils.data import Dataset
 
 class ImageDataset(Dataset):
     def __init__(self, data_path, label_path, transforms):
-        # ray.init()
+
         if os.path.exists(data_path) and os.path.exists(label_path):
             self.dataset_dir = Path(data_path)
             self.labels_dir = Path(label_path)
             self.labels_df = pd.read_csv(self.labels_dir)
             # self.all_filenames = os.listdir(self.dataset_dir)
-            self.all_filenames = self.labels_df["Image Index"]
+            self.all_filenames = self.labels_df["Image Index"].tolist()
         else:
 
             self.dataset_dir = None

@@ -13,6 +13,10 @@ class ImageDataModule(L.LightningDataModule):
         self.batch_size = batch_size
         self.transform = transforms.Compose([transforms.ToTensor(),
                                              transforms.Normalize((0.1307,), (0.3081,))])
+        self.train = None
+        self.validation = None
+        self.test = None
+        self.predict = None
 
 
     def prepare_data(self):
@@ -23,7 +27,7 @@ class ImageDataModule(L.LightningDataModule):
         # TODO: Define Data splits for each mode
 
         if mode == "train":
-            dataset = ImageDataset(data_path=self.data_dir, label_path=self.label_dir)
+            dataset = ImageDataset(data_path=self.data_dir, label_path=self.label_dir, transforms=)
             self.train, self.validation = random_split(
                 dataset, [55000, 5000], generator=torch.Generator().manual_seed(42)
             )
