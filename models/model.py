@@ -1,4 +1,3 @@
-import torch
 from torch import nn
 import torch.optim as optim
 import lightning as L
@@ -61,20 +60,11 @@ class CNN(L.LightningModule):
 
     def model_step(self, batch, batch_idx):
         data, labels = batch
-        logits = self.forward(data)
+        logits = self(data)
         loss = self.criterion(logits, labels)
         return loss
 
-    def training_epoch_end(self, outputs):
-        pass
-
-    def validation_epoch_end(self, outputs):
-        pass
-
     def training_step(self, batch, batch_idx):
-        return self.model_step(batch, batch_idx)
-
-    def validation_step(self, batch, batch_idx):
         return self.model_step(batch, batch_idx)
 
     def test_step(self, batch, batch_idx):
